@@ -14,23 +14,23 @@
        <div  id="computerNumber" style= "height: 100px; width: 300px; background-color: yellow; text-align: center; padding: 30px;"></div>
     </div>
 
-    <div id="Win">Win:</div>
-    <div id="Loss">Loss:</div>
+    <div id="Win">Win: <span id="winText"></span></div>
+    <div id="Loss">Loss: <span id="lossText"></span></div>
 
-    <div id="numberMatch" style= "height: 100px; width: 300px; background-color: skyblue; text-align: center;
+    <div id="numberTotal" style= "height: 100px; width: 300px; background-color: skyblue; text-align: center;
     padding: 30px;">You're Total Score</div>
 
     <div   class= "image-gallery"> 
-     <a href="bluecrystal"><img src="assets/images/bluecrystal.jpg" alt="bluecrystal"></a></div>
+     <img src="assets/images/bluecrystal.jpg" id="bluecrystal"></div>
 
     <div   class= "image-gallery"> 
-     <a href="greencrystal"><img src="assets/images/greencrystal.jpg" alt="greencrystal"></a></div>
+     <img src="assets/images/greencrystal.jpg" id="greencrystal"></div>
 
     <div   class= "image-gallery"> 
-     <a href="purplecrystal"><img src="assets/images/purplecrystal.jpg" alt="purplecrystal"></a></div>
+     <img src="assets/images/purplecrystal.jpg" id="purplecrystal"></div>
 
     <div   class= "image-gallery"> 
-     <a href="whitecrystal"><img src="assets/images/whitecrystal.jpg" alt="whitecrystal"></a></div>
+     <img src="assets/images/whitecrystal.jpg" id="whitecrystal"></div>
 
     
 
@@ -38,11 +38,97 @@
     <script>
         $(document).ready(function() {
 
-        $("#computerNumber").on("click", function() {
+          var wins = 0;
+          var loss = 0;
+          var numberTotal = 0;
+          var computerNumber = 0;
+          var bluecrystal = 0;
+          var greencrystal = 0;
+          var purplecrystal = 0;
+          var whitecrystal = 0; 
+
+          function reset() {
+            numberTotal = 0;
+            
+            $("#numberTotal").text(numberTotal)
+
+            computerNumber = 0;
+                    var yellowBlock = Math.floor(Math.random() * 101) + 19;
+                    computerNumber = yellowBlock;
+
+                    console.log (yellowBlock);
+                    $("#computerNumber").text(computerNumber);
+                    
+                  bluecrystal = Math.floor(Math.random() * 12) + 1;
+                  
+                  console.log("Blue: " + bluecrystal)
+
+                   greencrystal = Math.floor(Math.random() * 12) + 1;
+                  
+                  console.log("Green: " + greencrystal)
+
+                   purplecrystal = Math.floor(Math.random() * 12) + 1;
+                  
+                  console.log("Purple: " + purplecrystal)
+
+                   whitecrystal = Math.floor(Math.random() * 12) + 1;
+                  
+                  console.log("White: " + whitecrystal)
+          }
+          
+            reset();
+
+
+            function checkWin() {
+              if (computerNumber == numberTotal){
+                console.log("youwon")
+                wins++;
+                // Now show the win total on the screen
+                reset() 
+              } else if (numberTotal>computerNumber){
+                console.log("youlose")
+                reset()
+              }
+            }
+//Generating a random number between 1-12 for each crystal pic// 
+            $("#bluecrystal").on("click",function() {
+               numberTotal = numberTotal + bluecrystal;
+               $("#numberTotal").text(numberTotal)
+               
+              checkWin();
+            });
+
+            $("#greencrystal").on("click",function() {
+               numberTotal = numberTotal + greencrystal;
+               $("#numberTotal").text(numberTotal)
+
+              checkWin();
+            });
+
+            $("#purplecrystal").on("click",function() {
+               numberTotal = numberTotal + purplecrystal;
+               $("#numberTotal").text(numberTotal)
+
+              checkWin();
+            });
+
+            $("#whitecrystal").on("click",function() {
+               numberTotal = numberTotal + whitecrystal;
+               $("#numberTotal").text(numberTotal)
+              
+              checkWin();
+            });
 
 
 
-        });
+
+
+
+
+
+
+
+
     });
     
     
