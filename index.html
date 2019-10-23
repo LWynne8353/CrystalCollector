@@ -38,7 +38,7 @@
     <script>
         $(document).ready(function() {
 
-          var wins = 0;
+          var win = 0;
           var loss = 0;
           var numberTotal = 0;
           var computerNumber = 0;
@@ -81,26 +81,32 @@
 
             function checkWin() {
               if (computerNumber == numberTotal){
-                console.log("youwon")
-                wins++;
+                alert("you won");
+                win++;
+                $("#winText").text(win);
                 // Now show the win total on the screen
-                reset() 
+                reset();
               } else if (numberTotal>computerNumber){
-                console.log("youlose")
+                alert("you lose");
+                //Tallies the losses for the game
+                loss++;
+                $("#lossText").text(loss);
+              
                 reset()
               }
             }
 //Generating a random number between 1-12 for each crystal pic// 
             $("#bluecrystal").on("click",function() {
                numberTotal = numberTotal + bluecrystal;
-               $("#numberTotal").text(numberTotal)
+               $("#numberTotal").text(numberTotal);
                
               checkWin();
+
             });
 
             $("#greencrystal").on("click",function() {
                numberTotal = numberTotal + greencrystal;
-               $("#numberTotal").text(numberTotal)
+               $("#numberTotal").text(numberTotal);
 
               checkWin();
             });
