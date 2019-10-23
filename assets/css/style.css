@@ -1,0 +1,31 @@
+body{background-color: papayawhip;}
+
+h1 {font: cursive; 
+    font-size: 100px; 
+    text-align: center; 
+    color: palevioletred
+}
+
+h2 {font:arial;
+    font-size: 35px
+}
+
+p {font: arial;
+    font-size: 20px;
+    text-align: left;
+}
+
+#Win {font: arial; 
+    font-size: 50px;
+}
+
+#Loss {font: arial; 
+    font-size: 50px;
+}
+
+.image-gallery {
+    float:left;
+    width: 200px;
+    margin: 20px 0 25px;
+
+}

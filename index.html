@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         
     </head>
@@ -9,16 +10,17 @@
     <body>
             <h1>Crystal Collector</h1>
         <h2>Instructions:</h2>
-         <p>Click on the crystals below to add up to the number showed to you. If you match the number you win but if you go over the number you lose. Have fun and good luck!</p>
+         <p>The game is played by collecting the crystal by matching the number in the yellow box. Click on the crystal pictures below to add up to the number given to you. Your tally number will appear in the blue box. Win or lose the random number will be reset and the score will be shown in the win/loss area.</p>
 
        <div  id="computerNumber" style= "height: 100px; width: 300px; background-color: yellow; text-align: center; padding: 30px;"></div>
     </div>
 
-    <div id="Win">Win: <span id="winText"></span></div>
-    <div id="Loss">Loss: <span id="lossText"></span></div>
-
     <div id="numberTotal" style= "height: 100px; width: 300px; background-color: skyblue; text-align: center;
     padding: 30px;">You're Total Score</div>
+
+<div id="Win">Win: <span id="winText"></span></div>
+<div id="Loss">Loss: <span id="lossText"></span></div>
+  </div>
 
     <div   class= "image-gallery"> 
      <img src="assets/images/bluecrystal.jpg" id="bluecrystal"></div>
@@ -31,7 +33,7 @@
 
     <div   class= "image-gallery"> 
      <img src="assets/images/whitecrystal.jpg" id="whitecrystal"></div>
-
+    
     
 
 
@@ -81,13 +83,13 @@
 
             function checkWin() {
               if (computerNumber == numberTotal){
-                alert("you won");
+                alert("YEAH YEAH! You Won!");
                 win++;
                 $("#winText").text(win);
                 // Now show the win total on the screen
                 reset();
               } else if (numberTotal>computerNumber){
-                alert("you lose");
+                alert("WOMP WOMP! You Lose!");
                 //Tallies the losses for the game
                 loss++;
                 $("#lossText").text(loss);
